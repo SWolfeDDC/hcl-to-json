@@ -625,4 +625,9 @@ EOF
 }
 """
 
+"""
+variable "variable_with_default_on_same_line"            { default ="some default" }
+
+"""
+
 ]
