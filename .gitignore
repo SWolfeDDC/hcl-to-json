@@ -5,4 +5,8 @@ lib
 coverage
 _book
 
+# erroneous coffee output when running build:watch
+src/*.js
+src/*.js.map
+
 .idea/
