@@ -4,10 +4,10 @@
   "main": "lib/index.js",
   "scripts": {
     "clean": "rm -rf lib",
-    "test": "./node_modules/mocha/bin/_mocha --reporter spec --compilers coffee:coffee-script/register",
+    "test": "npx mocha --reporter spec --compilers coffee:coffee-script/register",
     "test:watch": "npm test -- --watch",
-    "build:watch": "./node_modules/coffee-script/bin/coffee -o lib -wbc src",
-    "build:lib": "./node_modules/coffee-script/bin/coffee -o lib -bc src",
+    "build:watch": "npx coffee -o lib -wbc src",
+    "build:lib": "npx coffee -o lib -bc src",
     "build": "npm run build:lib",
     "bundle": "npm run prepare && browserify -g uglifyify lib/bundle.js -o dist/bundle.js",
     "prepare": "npm run clean && npm run build",
