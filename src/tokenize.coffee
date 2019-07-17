@@ -34,8 +34,9 @@ module.exports = tokenize = (input) ->
     char = "\\#{char}"
     regex = ///(["'])(?:(?=(\\?))\2.)*?\1|(?<char>#{char})///g
     input = input.replace regex, (match, group1, group2, group3, group4, group5, group6) ->
-      {char} = group6.char # ...rest parameter isn't compiling with coffee for some reason
-      console.log({regex, match, groups, char } #, params: {group1, group2, group3, group4, group5, group6, group7, group8}})
+#      console.log {group1, group2, group3, group4, group5, group6 }
+      {char} = group6 # ...rest parameter isn't compiling with coffee for some reason
+#      console.log {regex, match, char }
       unless char then match else " #{token} "
 
   debug 'tokenized', input

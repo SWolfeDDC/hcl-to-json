@@ -8,5 +8,7 @@ _book
 # erroneous coffee output when running build:watch
 src/*.js
 src/*.js.map
+test/*.js
+test/*.js.map
 
 .idea/

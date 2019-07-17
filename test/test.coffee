@@ -18,4 +18,7 @@ describe 'hcl sample tests', ->
 
   [0...hclSamples.length].forEach (i) ->
     it "testing sample #{i}", ->
-      expect(hcltojson hclSamples[i]).toEqual hclSamplesJSON[i]
+      hcl = hclSamples[i]
+      json = hclSamplesJSON[i]
+#      console.log {hcl, json: JSON.stringify json }
+      expect(hcltojson hcl).toEqual json
