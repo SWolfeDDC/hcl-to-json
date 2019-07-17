@@ -1,5 +1,6 @@
 debug  = (require 'debug') 'hcltojson:tokenize'
 TOKENS = require './tokens'
+os = require 'os'
 
 CHARS = [
   [','  , TOKENS.COMMA    ]
@@ -32,11 +33,15 @@ module.exports = tokenize = (input) ->
   # tokenize input
   for [char, token] in CHARS
     char = "\\#{char}"
+    lines = input.split os.EOL
+
     regex = ///(["'])(?:(?=(\\?))\2.)*?\1|(?<char>#{char})///g
+    fallback = ///".+"|(?<char>\,)///g
     input = input.replace regex, (match, group1, group2, group3, group4, group5, group6) ->
 #      console.log {group1, group2, group3, group4, group5, group6 }
       {char} = group6 # ...rest parameter isn't compiling with coffee for some reason
-#      console.log {regex, match, char }
+#      if char
+#        console.warn {regex, match, char }
       unless char then match else " #{token} "
 
   debug 'tokenized', input

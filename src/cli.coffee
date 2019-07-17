@@ -34,6 +34,7 @@ readInput = (filename, callback) ->
 
 usage = ->
 
+  console.warn 'version 0.1.2'
   console.warn 'Usages:'
   console.warn 'hcltojson example.tf'
   console.warn 'cat example.tf | hcltojson'
